@@ -151,4 +151,24 @@ if (menuToggle && navLinks) {
             navLinks.classList.remove('active');
         }
     });
-} 
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    const faqItems = document.querySelectorAll('.faq-item');
+    
+    faqItems.forEach(item => {
+        const header = item.querySelector('.faq-header');
+        
+        header.addEventListener('click', () => {
+            // 关闭其他所有打开的FAQ
+            faqItems.forEach(otherItem => {
+                if (otherItem !== item && otherItem.classList.contains('active')) {
+                    otherItem.classList.remove('active');
+                }
+            });
+            
+            // 切换当前FAQ的状态
+            item.classList.toggle('active');
+        });
+    });
+}); 

@@ -28,12 +28,14 @@ body {
 
 /* Header Styles */
 .header {
-    background: var(--dark-bg);
+    background: var(--primary-bg);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 1rem 0;
     position: fixed;
     width: 100%;
     top: 0;
     z-index: 1000;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+    transition: all 0.3s ease;
 }
 
 .nav-container {
@@ -1524,4 +1526,87 @@ h3 { font-size: 1.5rem; }
 .fullscreen-btn:hover {
     transform: translateY(-2px);
     background: #FFE44D;
+}
+
+/* 浏览器退出全屏按钮样式 */
+.browser-exit-btn {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 10000;
+    background: rgba(0, 0, 0, 0.6);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    padding: 8px 16px;
+    border-radius: 20px;
+    color: white;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 16px;
+    backdrop-filter: blur(4px);
+    transition: all 0.3s ease;
+}
+
+.browser-exit-btn:hover {
+    background: rgba(0, 0, 0, 0.8);
+    border-color: rgba(255, 255, 255, 0.4);
+}
+
+.browser-exit-btn:active {
+    transform: scale(0.95);
+}
+
+.browser-exit-btn .exit-icon {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.browser-exit-btn .exit-text {
+    font-weight: 500;
+}
+
+/* 适配不同设备 */
+@media (max-width: 768px) {
+    .browser-exit-btn {
+        top: 10px;
+        right: 10px;
+        padding: 6px 12px;
+        font-size: 14px;
+    }
+}
+
+/* 横屏模式优化 */
+@media (orientation: landscape) and (max-height: 450px) {
+    .browser-exit-btn {
+        top: 8px;
+        right: 8px;
+        padding: 4px 10px;
+    }
+}
+
+/* 移动端响应式调整 */
+@media (max-width: 768px) {
+    .header {
+        position: relative;
+        padding: 0.8rem 0;
+    }
+
+    /* 由于header不再固定，需要移除页面顶部padding */
+    .hero-section {
+        padding-top: 20px;
+    }
+
+    /* 其他移动端相关样式保持不变 */
+    .nav-container {
+        padding: 0 15px;
+    }
+    
+    .nav-links {
+        display: none;
+    }
+    
+    .menu-toggle {
+        display: block;
+    }
 }

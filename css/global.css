@@ -741,150 +741,148 @@ h3 { font-size: 1.5rem; }
     }
 }
 
-/* Hero区块样式 */
+/* Hero Section Styles */
 .hero-section {
-    padding: 8rem 0 4rem;
+    background: var(--dark-bg);
+    padding: 120px 0 40px;
     text-align: center;
-    background: linear-gradient(to bottom, var(--primary-bg), var(--secondary-bg));
+    position: relative;
+    overflow: hidden;
+}
+
+/* 添加斜线背景效果 */
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: repeating-linear-gradient(
+        45deg,
+        rgba(255, 215, 0, 0.03),
+        rgba(255, 215, 0, 0.03) 10px,
+        transparent 10px,
+        transparent 20px
+    );
 }
 
 .hero-content {
     max-width: 800px;
     margin: 0 auto;
-    padding: 0 1.5rem;
+    padding: 0 20px;
+    position: relative;
+    z-index: 1;
 }
 
-.hero-content h1 {
-    font-size: 3.5rem;
+.hero-title {
+    font-size: 4.5rem;
     font-weight: 800;
     line-height: 1.2;
     margin-bottom: 1.5rem;
-    background: linear-gradient(45deg, #60a5fa, #3b82f6);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+}
+
+.hero-title .highlight {
+    color: var(--primary-yellow);
+    display: block;
+    text-shadow: 3px 3px 0 rgba(0,0,0,0.2);
+}
+
+.hero-title .unblocked {
+    color: var(--text-white);
+    display: block;
+    font-size: 0.8em;
+    opacity: 0.9;
 }
 
 .hero-subtitle {
     font-size: 1.25rem;
-    color: var(--text-secondary);
-    margin-bottom: 3rem;
+    color: rgba(255,255,255,0.8);
+    margin-bottom: 2.5rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-/* 游戏容器样式 */
-.game-container {
-    background: var(--secondary-bg);
-    border-radius: 1rem;
-    overflow: hidden;
-    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-    margin: 2rem auto;
+/* CTA按钮样式 */
+.cta-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.cta-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 1rem;
+    background: var(--primary-yellow);
+    color: var(--dark-bg);
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    font-size: 1.25rem;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
+}
+
+.cta-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 215, 0, 0.4);
+    background: #FFE44D;
+}
+
+.cta-button:active {
+    transform: translateY(0);
+}
+
+.cta-icon {
+    font-size: 1.5rem;
+}
+
+.cta-text {
     position: relative;
+    padding-right: 20px;
 }
 
-.game-frame {
-    width: 100%;
-    height: 600px;
-    border: none;
-}
-
-.fullscreen-btn {
+.cta-text::after {
+    content: '→';
     position: absolute;
-    bottom: 1rem;
-    right: 1rem;
-    background: var(--accent-color);
-    color: white;
-    border: none;
+    right: 0;
+    opacity: 0;
+    transform: translateX(-10px);
+    transition: all 0.3s ease;
+}
+
+.cta-button:hover .cta-text::after {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.cta-badge {
+    display: inline-block;
     padding: 0.5rem 1rem;
-    border-radius: 0.5rem;
-    cursor: pointer;
-    font-weight: 500;
-    transition: background-color 0.2s;
-}
-
-.fullscreen-btn:hover {
-    background-color: #2563eb;
-}
-
-/* 特性区块样式 */
-.features-section {
-    padding: 6rem 0;
-    background: var(--secondary-bg);
-}
-
-.features-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-    margin-top: 3rem;
-}
-
-.feature-card {
-    background: var(--primary-bg);
-    padding: 2rem;
-    border-radius: 1rem;
-    transition: transform 0.2s;
-}
-
-.feature-card:hover {
-    transform: translateY(-5px);
-}
-
-.feature-card h3 {
-    color: var(--accent-color);
-    margin-bottom: 1rem;
-}
-
-.feature-card p {
-    color: var(--text-secondary);
-}
-
-/* FAQ区块样式 */
-.faq-section {
-    padding: 6rem 0;
-    background: var(--primary-bg);
-}
-
-.faq-grid {
-    display: grid;
-    gap: 2rem;
-    margin-top: 3rem;
-}
-
-.faq-item {
-    background: var(--secondary-bg);
-    padding: 2rem;
-    border-radius: 1rem;
-}
-
-.faq-item h3 {
-    color: var(--text-primary);
-    margin-bottom: 1rem;
-}
-
-.faq-item p {
-    color: var(--text-secondary);
+    background: rgba(255,255,255,0.1);
+    color: var(--text-white);
+    border-radius: 20px;
+    font-size: 0.9rem;
 }
 
 /* 响应式调整 */
 @media (max-width: 768px) {
-    .hero-content h1 {
-        font-size: 2.5rem;
+    .hero-title {
+        font-size: 3rem;
     }
     
-    .game-frame {
-        height: 400px;
+    .hero-subtitle {
+        font-size: 1.1rem;
+        padding: 0 1rem;
     }
     
-    .features-grid {
-        grid-template-columns: 1fr;
+    .cta-button {
+        padding: 0.875rem 1.5rem;
+        font-size: 1.1rem;
     }
 }
-
-/* 动画效果 */
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-.animate-fade-in {
-    animation: fadeIn 0.5s ease-out forwards;
-} 

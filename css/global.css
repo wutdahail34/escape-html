@@ -308,35 +308,115 @@ section h2 {
 
 /* 游戏指南区域样式 */
 .guide-section {
-    padding: 4rem 0;
-    background: #fff;
+    background: #1a1a1a;
+    padding: 80px 0;
+}
+
+.guide-section .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.guide-section h2 {
+    text-align: center;
+    color: #ffd700;
+    font-size: 2.5rem;
+    margin-bottom: 50px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .guide-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    padding: 20px;
 }
 
 .guide-card {
-    padding: 2rem;
-    background: #f8f9fa;
-    border-radius: 10px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    background: #242424;
+    border-radius: 15px;
+    padding: 30px;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 215, 0, 0.1);
+    position: relative;
+}
+
+.guide-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(255, 215, 0, 0.3);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.guide-icon {
+    width: 50px;
+    height: 50px;
+    background: #ffd700;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.guide-icon i {
+    font-size: 24px;
+    color: #1a1a1a;
 }
 
 .guide-card h3 {
-    color: #007bff;
-    margin-bottom: 1rem;
+    color: #ffd700;
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    font-weight: 600;
 }
 
 .guide-card ul {
-    list-style-position: inside;
-    color: #666;
+    list-style: none;
+    padding: 0;
+    margin: 0;
 }
 
-.guide-card li {
-    margin-bottom: 0.5rem;
+.guide-card ul li {
+    color: #e0e0e0;
+    margin-bottom: 12px;
+    padding-left: 20px;
+    position: relative;
+    line-height: 1.6;
+}
+
+.guide-card ul li::before {
+    content: '→';
+    color: #ffd700;
+    position: absolute;
+    left: 0;
+}
+
+.key {
+    background: #ffd700;
+    color: #1a1a1a;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-weight: bold;
+    margin-right: 5px;
+    font-size: 0.9em;
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+    .guide-section h2 {
+        font-size: 2rem;
+    }
+    
+    .guide-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .guide-card {
+        padding: 25px;
+    }
 }
 
 /* 车辆展示区域样式 */
@@ -1247,6 +1327,93 @@ h3 { font-size: 1.5rem; }
     }
     
     .feature-card {
+        padding: 25px;
+    }
+}
+
+.why-play-section {
+    background: #1a1a1a;
+    padding: 80px 0;
+}
+
+.why-play-section .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.why-play-section h2 {
+    text-align: center;
+    color: #ffd700;
+    font-size: 2.5rem;
+    margin-bottom: 50px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.why-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    padding: 20px;
+}
+
+.why-card {
+    background: #242424;
+    border-radius: 15px;
+    padding: 30px;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 215, 0, 0.1);
+    position: relative;
+}
+
+.why-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(255, 215, 0, 0.3);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.why-icon {
+    width: 60px;
+    height: 60px;
+    background: #ffd700;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.why-icon i {
+    font-size: 28px;
+    color: #1a1a1a;
+}
+
+.why-card h3 {
+    color: #ffd700;
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.why-card p {
+    color: #e0e0e0;
+    line-height: 1.6;
+    font-size: 1rem;
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+    .why-play-section h2 {
+        font-size: 2rem;
+    }
+    
+    .why-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .why-card {
         padding: 25px;
     }
 }

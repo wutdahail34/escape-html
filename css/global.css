@@ -1,0 +1,890 @@
+/* Reset & Base Styles */
+:root {
+    --primary-bg: #0f172a;      /* 深蓝黑色背景 */
+    --secondary-bg: #1e293b;    /* 稍浅的蓝黑色 */
+    --accent-color: #3b82f6;    /* 亮蓝色强调色 */
+    --text-primary: #f8fafc;    /* 主要文字颜色 */
+    --text-secondary: #94a3b8;  /* 次要文字颜色 */
+    --container-width: 1280px;
+    --primary-yellow: #FFD700;
+    --dark-bg: #1a1a1a;
+    --text-white: #ffffff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--primary-bg);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    color: var(--text-primary);
+    line-height: 1.5;
+}
+
+/* Header Styles */
+.header {
+    background: var(--dark-bg);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+}
+
+.nav-container {
+    width: 100%;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-white);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+}
+
+.highlight {
+    color: var(--primary-yellow);
+    margin-right: 0.5rem;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.nav-links a {
+    color: var(--text-white);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: var(--primary-yellow);
+}
+
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+}
+
+.hamburger {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: var(--primary-yellow);
+    position: relative;
+    transition: all 0.3s ease-in-out;
+}
+
+.hamburger::before,
+.hamburger::after {
+    content: '';
+    position: absolute;
+    width: 24px;
+    height: 2px;
+    background: var(--primary-yellow);
+    transition: all 0.3s ease-in-out;
+}
+
+.hamburger::before {
+    transform: translateY(-8px);
+}
+
+.hamburger::after {
+    transform: translateY(8px);
+}
+
+.menu-toggle.active .hamburger {
+    background: transparent;
+}
+
+.menu-toggle.active .hamburger::before {
+    transform: rotate(45deg);
+}
+
+.menu-toggle.active .hamburger::after {
+    transform: rotate(-45deg);
+}
+
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+    }
+
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: var(--dark-bg);
+        padding: 1rem 0;
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .nav-links a {
+        padding: 1rem 2rem;
+        width: 100%;
+        text-align: left;
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .nav-links a:last-child {
+        border-bottom: none;
+    }
+}
+
+/* Game Section Styles */
+.game-section {
+    margin-top: 60px;
+    padding: 2rem;
+}
+
+.game-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    background: var(--primary-color);
+    border-radius: 10px;
+    box-shadow: var(--pixel-shadow);
+    overflow: hidden;
+}
+
+.game-frame {
+    width: 100%;
+    height: 600px;
+    border: none;
+}
+
+.game-controls {
+    padding: 1rem;
+    text-align: right;
+    background: #f8f9fa;
+}
+
+.fullscreen-btn {
+    padding: 0.5rem 1rem;
+    background: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.fullscreen-btn:hover {
+    background: #0056b3;
+}
+
+/* Intro Section Styles */
+.intro-section {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.intro-section h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: #333;
+    text-align: center;
+}
+
+.game-description {
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 1.1rem;
+    color: #666;
+}
+
+.features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.feature {
+    text-align: center;
+    padding: 1.5rem;
+    background: #f8f9fa;
+    border-radius: 8px;
+}
+
+.feature h3 {
+    color: #007bff;
+    margin-bottom: 0.5rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none; /* 在移动端需要添加汉堡菜单 */
+    }
+    
+    .game-frame {
+        height: 400px;
+    }
+    
+    .intro-section h1 {
+        font-size: 2rem;
+    }
+}
+
+/* 通用容器样式 */
+.container {
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* 通用标题样式 */
+section h2 {
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #333;
+}
+
+/* 游戏指南区域样式 */
+.guide-section {
+    padding: 4rem 0;
+    background: #fff;
+}
+
+.guide-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.guide-card {
+    padding: 2rem;
+    background: #f8f9fa;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.guide-card h3 {
+    color: #007bff;
+    margin-bottom: 1rem;
+}
+
+.guide-card ul {
+    list-style-position: inside;
+    color: #666;
+}
+
+.guide-card li {
+    margin-bottom: 0.5rem;
+}
+
+/* 车辆展示区域样式 */
+.vehicles-section {
+    padding: 4rem 0;
+    background: #f4f4f4;
+}
+
+.vehicles-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+.vehicle-card {
+    background: var(--light-color);
+    border: 4px solid var(--dark-color);
+    box-shadow: var(--pixel-shadow);
+    transform: perspective(1000px) rotateX(10deg);
+    transition: transform 0.3s ease;
+}
+
+.vehicle-card:hover {
+    transform: perspective(1000px) rotateX(5deg) translateY(-10px);
+}
+
+.vehicle-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.vehicle-card h3 {
+    padding: 1rem;
+    text-align: center;
+    color: #333;
+}
+
+.stats {
+    padding: 1rem;
+}
+
+.stat {
+    margin-bottom: 0.5rem;
+    color: #666;
+}
+
+/* FAQ区域样式 */
+.faq-section {
+    padding: 4rem 0;
+    background: #fff;
+}
+
+.faq-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.faq-item {
+    padding: 1.5rem;
+    background: #f8f9fa;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.faq-item h3 {
+    color: #007bff;
+    margin-bottom: 1rem;
+}
+
+.faq-item p {
+    color: #666;
+}
+
+/* 排行榜区域样式 */
+.leaderboard-section {
+    padding: 4rem 0;
+    background: #f4f4f4;
+}
+
+.leaderboard {
+    background: var(--dark-color);
+    border: 4px solid var(--primary-color);
+    box-shadow: var(--pixel-shadow);
+}
+
+.leaderboard-header {
+    display: grid;
+    grid-template-columns: 100px 1fr 150px;
+    padding: 1rem;
+    background: var(--primary-color);
+    color: var(--dark-color);
+    font-weight: bold;
+}
+
+.leaderboard-body {
+    padding: 1rem;
+}
+
+/* 评论区样式 */
+.comments-section {
+    padding: 4rem 0;
+    background: #fff;
+}
+
+.comment-form {
+    margin-bottom: 2rem;
+}
+
+.comment-form textarea {
+    width: 100%;
+    height: 100px;
+    padding: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    resize: vertical;
+    margin-bottom: 1rem;
+}
+
+.submit-comment {
+    padding: 0.5rem 1.5rem;
+    background: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.submit-comment:hover {
+    background: #0056b3;
+}
+
+/* 页脚样式 */
+.footer {
+    background: var(--dark-color);
+    border-top: 4px solid var(--primary-color);
+    padding: 40px 0;
+    margin-top: 60px;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.footer-section h3 {
+    color: #fff;
+    margin-bottom: 1rem;
+}
+
+.footer-section ul {
+    list-style: none;
+}
+
+.footer-section ul li {
+    margin-bottom: 0.5rem;
+}
+
+.footer-section a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-section a:hover {
+    color: #007bff;
+}
+
+.social-links {
+    display: flex;
+    gap: 1rem;
+}
+
+.social-link {
+    padding: 0.5rem 1rem;
+    background: rgba(255,255,255,0.1);
+    border-radius: 5px;
+    transition: background 0.3s ease;
+}
+
+.social-link:hover {
+    background: rgba(255,255,255,0.2);
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+    .guide-grid,
+    .vehicles-grid,
+    .faq-grid,
+    .footer-content {
+        grid-template-columns: 1fr;
+    }
+
+    .leaderboard-header {
+        grid-template-columns: 80px 1fr 100px;
+    }
+
+    section h2 {
+        font-size: 1.5rem;
+    }
+}
+
+/* 排行榜行样式 */
+.leaderboard-row {
+    display: grid;
+    grid-template-columns: 100px 1fr 150px;
+    padding: 1rem;
+    border-bottom: 1px solid #eee;
+    transition: background 0.3s ease;
+}
+
+.leaderboard-row:hover {
+    background: #f8f9fa;
+}
+
+.rank {
+    font-weight: bold;
+    color: #007bff;
+}
+
+.score {
+    text-align: right;
+    color: #28a745;
+}
+
+/* 评论样式 */
+.comment {
+    background: var(--dark-color);
+    border: 4px solid var(--primary-color);
+    box-shadow: var(--pixel-shadow);
+    margin: 20px 0;
+    padding: 20px;
+}
+
+.comment-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+}
+
+.comment-player {
+    font-weight: bold;
+    color: #007bff;
+}
+
+.comment-date {
+    color: #666;
+}
+
+.comment-content {
+    color: #333;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+.comment-footer {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.like-btn {
+    background: none;
+    border: 1px solid #007bff;
+    color: #007bff;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.like-btn:hover {
+    background: #007bff;
+    color: #fff;
+}
+
+.like-count {
+    font-weight: bold;
+}
+
+/* 像素风格按钮 */
+.pixel-button {
+    background: var(--primary-color);
+    border: none;
+    padding: 12px 24px;
+    color: var(--dark-color);
+    text-transform: uppercase;
+    position: relative;
+    box-shadow: var(--pixel-shadow);
+    transition: all 0.2s ease;
+    cursor: pointer;
+    image-rendering: pixelated;
+}
+
+.pixel-button:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 6px 6px 0 rgba(0,0,0,0.2);
+}
+
+.pixel-button:active {
+    transform: translate(2px, 2px);
+    box-shadow: 2px 2px 0 rgba(0,0,0,0.2);
+}
+
+/* 卡片样式 */
+.pixel-card {
+    background: var(--light-color);
+    border: 4px solid var(--dark-color);
+    box-shadow: var(--pixel-shadow);
+    padding: 20px;
+    margin: 20px 0;
+    transform: perspective(1000px) rotateX(10deg);
+}
+
+/* 标题样式 */
+h1, h2, h3 {
+    color: var(--dark-color);
+    font-weight: 700;
+    line-height: 1.3;
+}
+
+h1 { font-size: 2.5rem; }
+h2 { font-size: 2rem; }
+h3 { font-size: 1.5rem; }
+
+/* 导航栏样式 */
+.nav-container {
+    background: var(--dark-color);
+    border-bottom: 4px solid var(--primary-color);
+    padding: 20px;
+}
+
+.nav-links a {
+    color: var(--primary-color);
+    text-decoration: none;
+    padding: 8px 16px;
+    margin: 0 8px;
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.nav-links a:hover {
+    border-color: var(--primary-color);
+    background: rgba(255, 215, 0, 0.1);
+}
+
+/* 车辆展示卡片 */
+.vehicle-card {
+    background: var(--light-color);
+    border: 4px solid var(--dark-color);
+    box-shadow: var(--pixel-shadow);
+    transform: perspective(1000px) rotateX(10deg);
+    transition: transform 0.3s ease;
+}
+
+.vehicle-card:hover {
+    transform: perspective(1000px) rotateX(5deg) translateY(-10px);
+}
+
+/* 排行榜样式 */
+.leaderboard {
+    background: var(--dark-color);
+    border: 4px solid var(--primary-color);
+    box-shadow: var(--pixel-shadow);
+}
+
+.leaderboard-header {
+    background: var(--primary-color);
+    color: var(--dark-color);
+    text-transform: uppercase;
+    padding: 12px;
+}
+
+.leaderboard-row {
+    border-bottom: 2px solid var(--primary-color);
+    padding: 12px;
+    transition: background 0.3s ease;
+}
+
+.leaderboard-row:hover {
+    background: rgba(255, 215, 0, 0.1);
+}
+
+/* 评论区样式 */
+.comment {
+    background: var(--dark-color);
+    border: 4px solid var(--primary-color);
+    box-shadow: var(--pixel-shadow);
+    margin: 20px 0;
+    padding: 20px;
+}
+
+.comment-form textarea {
+    background: var(--dark-color);
+    border: 4px solid var(--primary-color);
+    color: var(--light-color);
+    padding: 12px;
+    width: 100%;
+    margin-bottom: 16px;
+    font-family: 'Press Start 2P', cursive;
+}
+
+/* 页脚样式 */
+.footer {
+    background: var(--dark-color);
+    border-top: 4px solid var(--primary-color);
+    padding: 40px 0;
+    margin-top: 60px;
+}
+
+/* 动画效果 */
+@keyframes pixel-float {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0); }
+}
+
+.floating {
+    animation: pixel-float 2s ease-in-out infinite;
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+    .pixel-card, .vehicle-card {
+        transform: none;
+    }
+    
+    body {
+        font-size: 14px;
+    }
+}
+
+/* Hero区块样式 */
+.hero-section {
+    padding: 8rem 0 4rem;
+    text-align: center;
+    background: linear-gradient(to bottom, var(--primary-bg), var(--secondary-bg));
+}
+
+.hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+.hero-content h1 {
+    font-size: 3.5rem;
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+    background: linear-gradient(45deg, #60a5fa, #3b82f6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero-subtitle {
+    font-size: 1.25rem;
+    color: var(--text-secondary);
+    margin-bottom: 3rem;
+}
+
+/* 游戏容器样式 */
+.game-container {
+    background: var(--secondary-bg);
+    border-radius: 1rem;
+    overflow: hidden;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    margin: 2rem auto;
+    position: relative;
+}
+
+.game-frame {
+    width: 100%;
+    height: 600px;
+    border: none;
+}
+
+.fullscreen-btn {
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
+    background: var(--accent-color);
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background-color 0.2s;
+}
+
+.fullscreen-btn:hover {
+    background-color: #2563eb;
+}
+
+/* 特性区块样式 */
+.features-section {
+    padding: 6rem 0;
+    background: var(--secondary-bg);
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.feature-card {
+    background: var(--primary-bg);
+    padding: 2rem;
+    border-radius: 1rem;
+    transition: transform 0.2s;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+}
+
+.feature-card h3 {
+    color: var(--accent-color);
+    margin-bottom: 1rem;
+}
+
+.feature-card p {
+    color: var(--text-secondary);
+}
+
+/* FAQ区块样式 */
+.faq-section {
+    padding: 6rem 0;
+    background: var(--primary-bg);
+}
+
+.faq-grid {
+    display: grid;
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.faq-item {
+    background: var(--secondary-bg);
+    padding: 2rem;
+    border-radius: 1rem;
+}
+
+.faq-item h3 {
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+}
+
+.faq-item p {
+    color: var(--text-secondary);
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+    
+    .game-frame {
+        height: 400px;
+    }
+    
+    .features-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* 动画效果 */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+    animation: fadeIn 0.5s ease-out forwards;
+} 

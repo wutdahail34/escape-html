@@ -1588,7 +1588,7 @@ h3 { font-size: 1.5rem; }
 /* 移动端响应式调整 */
 @media (max-width: 768px) {
     .header {
-        position: relative;
+        position: relative !important;
         padding: 0.8rem 0;
     }
 

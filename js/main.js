@@ -67,54 +67,7 @@ const commentsData = [
     }
 ];
 
-// 渲染排行榜
-function renderLeaderboard() {
-    const leaderboardBody = document.querySelector('.leaderboard-body');
-    leaderboardBody.innerHTML = leaderboardData.map(entry => `
-        <div class="leaderboard-row">
-            <span class="rank">#${entry.rank}</span>
-            <span class="player">${entry.player}</span>
-            <span class="score">${entry.score.toLocaleString()}</span>
-        </div>
-    `).join('');
-}
 
-// 渲染评论
-function renderComments() {
-    const commentsList = document.querySelector('.comments-list');
-    commentsList.innerHTML = commentsData.map(comment => `
-        <div class="comment">
-            <div class="comment-header">
-                <span class="comment-player">${comment.player}</span>
-                <span class="comment-date">${comment.date}</span>
-            </div>
-            <div class="comment-content">${comment.content}</div>
-            <div class="comment-footer">
-                <button class="like-btn">
-                    <span class="like-count">${comment.likes}</span> Likes
-                </button>
-            </div>
-        </div>
-    `).join('');
-}
-
-// 添加新评论的功能
-document.querySelector('.submit-comment').addEventListener('click', () => {
-    const textarea = document.querySelector('.comment-form textarea');
-    const content = textarea.value.trim();
-    
-    if (content) {
-        commentsData.unshift({
-            player: "You",
-            date: new Date().toISOString().split('T')[0],
-            content: content,
-            likes: 0
-        });
-        
-        renderComments();
-        textarea.value = '';
-    }
-});
 
 // 页面加载时渲染数据
 document.addEventListener('DOMContentLoaded', () => {
@@ -152,23 +105,3 @@ if (menuToggle && navLinks) {
         }
     });
 }
-
-document.addEventListener('DOMContentLoaded', function() {
-    const faqItems = document.querySelectorAll('.faq-item');
-    
-    faqItems.forEach(item => {
-        const header = item.querySelector('.faq-header');
-        
-        header.addEventListener('click', () => {
-            // 关闭其他所有打开的FAQ
-            faqItems.forEach(otherItem => {
-                if (otherItem !== item && otherItem.classList.contains('active')) {
-                    otherItem.classList.remove('active');
-                }
-            });
-            
-            // 切换当前FAQ的状态
-            item.classList.toggle('active');
-        });
-    });
-}); 

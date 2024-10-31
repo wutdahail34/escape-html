@@ -992,15 +992,86 @@ h3 { font-size: 1.5rem; }
 
 /* 详细介绍样式 */
 .detailed-desc {
-    max-width: 1000px;
-    margin: 0 auto 4rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 桌面端两列布局 */
+    gap: 24px;
+    padding: 20px;
+    background: #1a1a1a;
 }
 
-.detailed-desc p {
-    margin-bottom: 1.5rem;
-    font-size: 1.1rem;
-    line-height: 1.8;
-    color: #e2e8f0;
+.desc-point {
+    background: #242424;
+    border-radius: 12px;
+    padding: 20px;
+    border: 1px solid rgba(255, 215, 0, 0.2);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.desc-point h4 {
+    color: #ffd700;
+    font-size: 1.2rem;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.desc-point p {
+    color: #ffffff;
+    line-height: 1.6;
+}
+
+.desc-point ul {
+    list-style: none;
+    padding-left: 24px;
+    margin: 0;
+}
+
+.desc-point ul li {
+    position: relative;
+    margin-bottom: 12px;
+    line-height: 1.5;
+    color: #e0e0e0;
+}
+
+.desc-point ul li:before {
+    content: "•";
+    color: #ffd700;
+    font-weight: bold;
+    position: absolute;
+    left: -20px;
+}
+
+/* 鼠标悬停效果 */
+.desc-point:hover {
+    transform: translateY(-2px);
+    border-color: #ffd700;
+    transition: all 0.3s ease;
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+    .what-is-section h2 {
+        font-size: 2rem;
+    }
+    
+    .short-desc {
+        font-size: 1.1rem;
+        padding: 0 1rem;
+    }
+    
+    .detailed-desc {
+        grid-template-columns: 1fr; /* 移动端单列布局 */
+        padding: 0 1rem;
+    }
+}
+
+/* 中等屏幕尺寸 */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .detailed-desc {
+        grid-template-columns: repeat(2, 1fr); /* 平板端保持两列布局 */
+    }
 }
 
 /* 游戏截图展示样式 */
@@ -1056,63 +1127,4 @@ h3 { font-size: 1.5rem; }
     .game-screenshots {
         grid-template-columns: repeat(2, 1fr);
     }
-}
-
-.detailed-desc {
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
-    padding: 20px;
-    background: #1a1a1a;
-}
-
-.desc-point {
-    background: #242424;
-    border-radius: 12px;
-    padding: 20px;
-    border: 1px solid rgba(255, 215, 0, 0.2);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-}
-
-.desc-point h4 {
-    color: #ffd700;
-    font-size: 1.2rem;
-    margin-bottom: 16px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-}
-
-.desc-point p {
-    color: #ffffff;
-    line-height: 1.6;
-}
-
-.desc-point ul {
-    list-style: none;
-    padding-left: 24px;
-    margin: 0;
-}
-
-.desc-point ul li {
-    position: relative;
-    margin-bottom: 12px;
-    line-height: 1.5;
-    color: #e0e0e0;
-}
-
-.desc-point ul li:before {
-    content: "•";
-    color: #ffd700;
-    font-weight: bold;
-    position: absolute;
-    left: -20px;
-}
-
-/* 鼠标悬停效果 */
-.desc-point:hover {
-    transform: translateY(-2px);
-    border-color: #ffd700;
-    transition: all 0.3s ease;
 }

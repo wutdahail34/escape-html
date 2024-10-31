@@ -25,47 +25,6 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// 示例排行榜数据
-const leaderboardData = [
-    { rank: 1, player: "SpeedMaster", score: 12500 },
-    { rank: 2, player: "RoadKing", score: 11200 },
-    { rank: 3, player: "DriftQueen", score: 10800 },
-    { rank: 4, player: "EscapeArtist", score: 9500 },
-    { rank: 5, player: "NightRider", score: 9200 },
-    { rank: 6, player: "PoliceEvader", score: 8800 },
-    { rank: 7, player: "CoinCollector", score: 8500 },
-    { rank: 8, player: "ProDriver", score: 8200 },
-    { rank: 9, player: "RushHour", score: 7900 },
-    { rank: 10, player: "CityRunner", score: 7500 }
-];
-
-// 示例评论数据
-const commentsData = [
-    {
-        player: "GameLover",
-        date: "2024-01-15",
-        content: "Best driving game ever! The police chases are so intense!",
-        likes: 45
-    },
-    {
-        player: "SpeedRacer",
-        date: "2024-01-14",
-        content: "Just unlocked the sports car, it's amazing! The handling is perfect.",
-        likes: 38
-    },
-    {
-        player: "CasualGamer",
-        date: "2024-01-13",
-        content: "Great game to play during breaks. Simple controls but challenging gameplay.",
-        likes: 29
-    },
-    {
-        player: "ProGamer",
-        date: "2024-01-12",
-        content: "Pro tip: Use the alleys to lose the police helicopters quickly!",
-        likes: 56
-    }
-];
 
 
 

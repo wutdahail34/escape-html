@@ -1485,3 +1485,132 @@ h3 { font-size: 1.5rem; }
         padding: 25px;
     }
 }
+
+.feedback-section {
+    background: #1a1a1a;
+    padding: 80px 0;
+}
+
+.feedback-section .container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.feedback-section h2 {
+    text-align: center;
+    color: #ffd700;
+    font-size: 2.5rem;
+    margin-bottom: 50px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.feedback-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+}
+
+.feedback-card {
+    background: #242424;
+    border-radius: 15px;
+    padding: 40px;
+    text-align: center;
+    border: 1px solid rgba(255, 215, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.feedback-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(255, 215, 0, 0.3);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.feedback-icon {
+    width: 80px;
+    height: 80px;
+    background: #ffd700;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 25px;
+}
+
+.feedback-icon i {
+    font-size: 36px;
+    color: #1a1a1a;
+}
+
+.feedback-card h3 {
+    color: #ffd700;
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+}
+
+.feedback-card p {
+    color: #e0e0e0;
+    line-height: 1.6;
+    margin-bottom: 25px;
+    font-size: 1.1rem;
+}
+
+.feedback-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 12px 30px;
+    border-radius: 25px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.support-btn {
+    background: #242424;
+    color: #ffd700;
+    border: 2px solid #ffd700;
+}
+
+.support-btn:hover {
+    background: #ffd700;
+    color: #1a1a1a;
+}
+
+.coffee-btn {
+    background: #ffd700;
+    color: #1a1a1a;
+    border: 2px solid #ffd700;
+}
+
+.coffee-btn:hover {
+    background: #242424;
+    color: #ffd700;
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+    .feedback-section h2 {
+        font-size: 2rem;
+    }
+    
+    .feedback-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .feedback-card {
+        padding: 30px;
+    }
+    
+    .feedback-card h3 {
+        font-size: 1.5rem;
+    }
+    
+    .feedback-btn {
+        width: 100%;
+    }
+}

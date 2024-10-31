@@ -1,14 +1,46 @@
 // 处理全屏功能
-document.querySelector('.fullscreen-btn').addEventListener('click', () => {
-    const gameFrame = document.querySelector('.game-frame');
-    if (gameFrame.requestFullscreen) {
-        gameFrame.requestFullscreen();
-    } else if (gameFrame.webkitRequestFullscreen) {
-        gameFrame.webkitRequestFullscreen();
-    } else if (gameFrame.msRequestFullscreen) {
-        gameFrame.msRequestFullscreen();
+const gameFrame = document.querySelector('.game-frame');
+const fullscreenBtn = document.querySelector('.fullscreen-btn');
+
+if (fullscreenBtn && gameFrame) {
+    fullscreenBtn.addEventListener('click', toggleFullScreen);
+}
+
+function toggleFullScreen() {
+    // 检查是否为移动设备
+    const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+
+    if (isMobile) {
+        // 移动端：使用CSS全屏方案
+        gameFrame.classList.toggle('mobile-fullscreen');
+        document.body.style.overflow = gameFrame.classList.contains('mobile-fullscreen') ? 'hidden' : '';
+        
+        // 更新按钮文本
+        const buttonText = fullscreenBtn.querySelector('.button-text');
+        if (buttonText) {
+            buttonText.textContent = gameFrame.classList.contains('mobile-fullscreen') ? 'Exit Fullscreen' : 'Fullscreen';
+        }
+    } else {
+        // 桌面端：使用Fullscreen API
+        if (!document.fullscreenElement) {
+            if (gameFrame.requestFullscreen) {
+                gameFrame.requestFullscreen();
+            } else if (gameFrame.webkitRequestFullscreen) {
+                gameFrame.webkitRequestFullscreen();
+            } else if (gameFrame.msRequestFullscreen) {
+                gameFrame.msRequestFullscreen();
+            }
+        } else {
+            if (document.exitFullscreen) {
+                document.exitFullscreen();
+            } else if (document.webkitExitFullscreen) {
+                document.webkitExitFullscreen();
+            } else if (document.msExitFullscreen) {
+                document.msExitFullscreen();
+            }
+        }
     }
-});
+}
 
 // 处理iframe加载状态
 document.querySelector('.game-frame').addEventListener('load', () => {

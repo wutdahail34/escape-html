@@ -1285,7 +1285,7 @@ h3 { font-size: 1.5rem; }
     color: #ffd700;
 }
 
-/* 响应式调整 */
+/* ���应式调整 */
 @media (max-width: 768px) {
     .feedback-section h2 {
         font-size: 2rem;
@@ -1398,93 +1398,70 @@ h3 { font-size: 1.5rem; }
     position: fixed;
     top: 0;
     left: 0;
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
     z-index: 9998;
     background: #000;
     border-radius: 0;
     aspect-ratio: unset;
 }
 
-/* 确保在iOS设备上也能全屏 */
+/* 防止iOS滚动 */
+.no-scroll {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    touch-action: none;
+}
+
+/* iOS特殊处理 */
 @supports (-webkit-touch-callout: none) {
     .game-frame.mobile-fullscreen {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
         height: -webkit-fill-available;
+        max-height: -webkit-fill-available;
     }
 }
 
-/* 全屏按钮样式 */
-.fullscreen-btn {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    background: var(--primary-yellow);
-    color: var(--dark-bg);
-    border: none;
+/* 退出按钮样式优化 */
+.exit-fullscreen-btn {
+    display: none;
+    position: fixed;
+    top: env(safe-area-inset-top, 20px);
+    right: env(safe-area-inset-right, 20px);
+    z-index: 9999;
+    background: rgba(0, 0, 0, 0.6);
+    border: 2px solid rgba(255, 255, 255, 0.2);
     padding: 8px 16px;
-    border-radius: 6px;
+    border-radius: 20px;
+    color: white;
     cursor: pointer;
-    font-weight: 600;
-    transition: all 0.3s ease;
-    margin: 10px;
+    align-items: center;
+    gap: 6px;
+    font-size: 16px;
+    backdrop-filter: blur(4px);
 }
 
-.fullscreen-btn:hover {
-    transform: translateY(-2px);
-    background: #FFE44D;
+.exit-fullscreen-btn:active {
+    transform: scale(0.95);
+    background: rgba(0, 0, 0, 0.8);
 }
 
-/* 移动端横屏优化 */
-@media (max-width: 768px) and (orientation: landscape) {
+/* 横屏模式优化 */
+@media (orientation: landscape) {
     .game-frame.mobile-fullscreen {
         width: 100vw;
         height: 100vh;
     }
-}
-
-/* 退出全屏按钮样式 */
-.exit-fullscreen-btn {
-    display: none; /* 默认隐藏 */
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    z-index: 9999;
-    background: rgba(0, 0, 0, 0.6);
-    border: none;
-    padding: 10px 20px;
-    border-radius: 30px;
-    color: white;
-    cursor: pointer;
-    align-items: center;
-    gap: 8px;
-    transition: all 0.3s ease;
-}
-
-.exit-fullscreen-btn:hover {
-    background: rgba(0, 0, 0, 0.8);
-}
-
-.exit-icon {
-    font-size: 20px;
-    font-weight: bold;
-}
-
-.exit-text {
-    font-size: 14px;
-}
-
-/* iOS设备适配 */
-@supports (-webkit-touch-callout: none) {
-    .game-frame.mobile-fullscreen {
-        height: -webkit-fill-available;
-    }
-}
-
-/* 移动端横屏优化 */
-@media (max-width: 768px) and (orientation: landscape) {
+    
     .exit-fullscreen-btn {
         top: 10px;
         right: 10px;
-        padding: 8px 16px;
+        padding: 6px 12px;
     }
 }

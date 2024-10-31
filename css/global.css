@@ -171,10 +171,17 @@ body {
     overflow: hidden;
 }
 
+.game-container.fullscreen-mode {
+    max-width: none;
+    margin: 0;
+    border-radius: 0;
+}
+
 .game-frame {
     width: 100%;
     aspect-ratio: 16/9;
     border: none;
+    transition: all 0.3s ease;
 }
 
 .game-controls {
@@ -1393,7 +1400,7 @@ h3 { font-size: 1.5rem; }
     left: 0;
     width: 100vw;
     height: 100vh;
-    z-index: 9999;
+    z-index: 9998;
     background: #000;
     border-radius: 0;
     aspect-ratio: unset;
@@ -1432,5 +1439,52 @@ h3 { font-size: 1.5rem; }
     .game-frame.mobile-fullscreen {
         width: 100vw;
         height: 100vh;
+    }
+}
+
+/* 退出全屏按钮样式 */
+.exit-fullscreen-btn {
+    display: none; /* 默认隐藏 */
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 9999;
+    background: rgba(0, 0, 0, 0.6);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 30px;
+    color: white;
+    cursor: pointer;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+}
+
+.exit-fullscreen-btn:hover {
+    background: rgba(0, 0, 0, 0.8);
+}
+
+.exit-icon {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.exit-text {
+    font-size: 14px;
+}
+
+/* iOS设备适配 */
+@supports (-webkit-touch-callout: none) {
+    .game-frame.mobile-fullscreen {
+        height: -webkit-fill-available;
+    }
+}
+
+/* 移动端横屏优化 */
+@media (max-width: 768px) and (orientation: landscape) {
+    .exit-fullscreen-btn {
+        top: 10px;
+        right: 10px;
+        padding: 8px 16px;
     }
 }

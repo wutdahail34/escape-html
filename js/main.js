@@ -1,9 +1,20 @@
 // 处理全屏功能
 const gameFrame = document.querySelector('.game-frame');
 const fullscreenBtn = document.querySelector('.fullscreen-btn');
+const gameContainer = document.querySelector('.game-container');
 
 if (fullscreenBtn && gameFrame) {
     fullscreenBtn.addEventListener('click', toggleFullScreen);
+
+    // 添加退出全屏按钮
+    const exitFullscreenBtn = document.createElement('button');
+    exitFullscreenBtn.className = 'exit-fullscreen-btn';
+    exitFullscreenBtn.innerHTML = `
+        <span class="exit-icon">×</span>
+        <span class="exit-text">Exit Fullscreen</span>
+    `;
+    gameContainer.appendChild(exitFullscreenBtn);
+    exitFullscreenBtn.addEventListener('click', exitFullScreen);
 }
 
 function toggleFullScreen() {
@@ -12,14 +23,12 @@ function toggleFullScreen() {
 
     if (isMobile) {
         // 移动端：使用CSS全屏方案
-        gameFrame.classList.toggle('mobile-fullscreen');
-        document.body.style.overflow = gameFrame.classList.contains('mobile-fullscreen') ? 'hidden' : '';
+        gameFrame.classList.add('mobile-fullscreen');
+        gameContainer.classList.add('fullscreen-mode');
+        document.body.style.overflow = 'hidden';
         
-        // 更新按钮文本
-        const buttonText = fullscreenBtn.querySelector('.button-text');
-        if (buttonText) {
-            buttonText.textContent = gameFrame.classList.contains('mobile-fullscreen') ? 'Exit Fullscreen' : 'Fullscreen';
-        }
+        // 显示退出按钮
+        document.querySelector('.exit-fullscreen-btn').style.display = 'flex';
     } else {
         // 桌面端：使用Fullscreen API
         if (!document.fullscreenElement) {
@@ -30,14 +39,30 @@ function toggleFullScreen() {
             } else if (gameFrame.msRequestFullscreen) {
                 gameFrame.msRequestFullscreen();
             }
-        } else {
-            if (document.exitFullscreen) {
-                document.exitFullscreen();
-            } else if (document.webkitExitFullscreen) {
-                document.webkitExitFullscreen();
-            } else if (document.msExitFullscreen) {
-                document.msExitFullscreen();
-            }
+        }
+    }
+}
+
+function exitFullScreen() {
+    const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+
+    if (isMobile) {
+        gameFrame.classList.remove('mobile-fullscreen');
+        gameContainer.classList.remove('fullscreen-mode');
+        document.body.style.overflow = '';
+        
+        // 隐藏退出按钮
+        document.querySelector('.exit-fullscreen-btn').style.display = 'none';
+        
+        // 滚动到游戏区域
+        gameContainer.scrollIntoView({ behavior: 'smooth' });
+    } else {
+        if (document.exitFullscreen) {
+            document.exitFullscreen();
+        } else if (document.webkitExitFullscreen) {
+            document.webkitExitFullscreen();
+        } else if (document.msExitFullscreen) {
+            document.msExitFullscreen();
         }
     }
 }

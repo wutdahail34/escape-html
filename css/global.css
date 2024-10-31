@@ -886,3 +886,38 @@ h3 { font-size: 1.5rem; }
         font-size: 1.1rem;
     }
 }
+
+.game-controls {
+    padding: 10px;
+    background-color: #1a1a1a;
+    border-top: 2px solid #ffd700;
+    text-align: center;
+}
+
+.fullscreen-btn {
+    background-color: #ffd700;
+    color: #000000;
+    border: none;
+    padding: 8px 20px;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 0 auto;
+    transition: all 0.3s ease;
+}
+
+.fullscreen-btn:hover {
+    background-color: #ffed4a;
+    transform: scale(1.05);
+}
+
+.btn-icon {
+    font-size: 1.2em;
+}
+
+.btn-text {
+    font-size: 1em;
+}

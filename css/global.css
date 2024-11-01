@@ -1588,7 +1588,7 @@ h3 { font-size: 1.5rem; }
 /* 移动端响应式调整 */
 @media (max-width: 768px) {
     .header {
-        position: relative !important;
+        position: relative;
         padding: 0.8rem 0;
     }
 
@@ -1608,5 +1608,17 @@ h3 { font-size: 1.5rem; }
     
     .menu-toggle {
         display: block;
+    }
+}
+
+/* 移动端响应式调整 */
+@media (max-width: 768px) {
+    .header {
+        position: relative !important;
+        padding: 0.8rem 0;
+    }
+
+    .hero-section {
+        padding-top: 20px;
     }
 }

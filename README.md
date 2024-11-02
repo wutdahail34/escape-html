@@ -96,7 +96,7 @@ Perfect for:
 
 
 ## Related Websites
-- [EmuCoach - Escape Road Unblocked](https://www.emucoach.com/forums/threads/escape-road-unblocked-play-online-free-with-friends.15139/)
+- [Ben's Bites Escape Road Unblocked](https://news.bensbites.com/posts/29883-escape-road-unblocked-free-online-police-chase-game)
 ---
 
 © 2024 Escape Road Unblocked. All rights reserved. 

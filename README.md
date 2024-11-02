@@ -100,6 +100,7 @@ Perfect for:
 - [Dev.to Escape Road Unblocked](https://dev.to/_ab56e9bbfaff3a478352a/escape-road-unblocked-a-browser-based-police-chase-game-with-nextjs-14-2im6)
 - [SaaS Hub Escape Road Unblocked Alternatives](https://www.saashub.com/escape-road-unblocked-alternatives)
 - [sourceforge' introduction of Escape Road Unblocked Game](https://sourceforge.net/projects/escape-html/)
+- [promote project of Escape Road Unblocked Game](https://www.promoteproject.com/startup/175565/escape-road-unblocked-game)
 
 ---
 

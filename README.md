@@ -103,6 +103,7 @@ Perfect for:
 - [promote project of Escape Road Unblocked Game](https://www.promoteproject.com/startup/175565/escape-road-unblocked-game)
 - [fazier's launch of Escape Road Unblocked Game](https://fazier.com/launches/escape-road-unblocked-game)
 - [AlternativeTo's introduction of Escape Road Unblocked Game](https://alternativeto.net/software/escape-road-unblocked-game/)
+- [GetByte's introduction of Escape Road Unblocked Game](https://www.getbyte.tech/product/escape-road-unblocked-game?confetti=true)
 
 ---
 

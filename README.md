@@ -104,6 +104,7 @@ Perfect for:
 - [fazier's launch of Escape Road Unblocked Game](https://fazier.com/launches/escape-road-unblocked-game)
 - [AlternativeTo's introduction of Escape Road Unblocked Game](https://alternativeto.net/software/escape-road-unblocked-game/)
 - [GetByte's introduction of Escape Road Unblocked Game](https://www.getbyte.tech/product/escape-road-unblocked-game?confetti=true)
+- [ToolsFine's navigation of Escape Road Unblocked Game](https://toolsfine.com/best-ai-tools/escape-road-unblocked-game)
 
 ---
 

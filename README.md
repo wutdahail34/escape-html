@@ -106,6 +106,7 @@ Perfect for:
 - [GetByte's introduction of Escape Road Unblocked Game](https://www.getbyte.tech/product/escape-road-unblocked-game?confetti=true)
 - [ToolsFine's navigation of Escape Road Unblocked Game](https://toolsfine.com/best-ai-tools/escape-road-unblocked-game)
 - [Toolio's introduction of Escape Road Unblocked Game](https://www.toolio.ai/tool/escape-road)
+- [AI Center's introduction of Escape Road Unblocked Game](https://aicenter.ai/products/escape-road-unblocked-game)
 
 ---
 
